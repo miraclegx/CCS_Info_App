@@ -11,7 +11,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Home"),
-        backgroundColor: const Color.fromARGB(255, 49, 73, 143),
+        //backgroundColor: const Color.fromARGB(255, 49, 73, 143),
       ),
       drawer: const Drawer(),
       body: SafeArea(
@@ -24,37 +24,61 @@ class HomeScreen extends StatelessWidget {
                 
                 // 1. Proportional Top Banner Container
                 Container(
-                  width: double.infinity,
-                  height: screenHeight * 0.3, // Takes exactly 30% of any screen height
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    image: const DecorationImage(
-                      image: AssetImage("assets/images/futalog.jpg"),
-                      fit: BoxFit.cover, 
-                    ),
-                    borderRadius: BorderRadius.circular(10),
-                    boxShadow: const [
-                      BoxShadow(
-                        color: Colors.black12,
-                        blurRadius: 10,
-                        offset: Offset(0, 4),
-                      )
-                    ],
-                  ),
-                  child: const Padding(
-                    padding: EdgeInsets.all(16.0),
-                    child: Text(
-                      "Your Future. Our Mission",
-                      style: TextStyle(
-                        color: Colors.white, 
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
-                
+  width: double.infinity,
+  height: screenHeight * 0.3, // Takes exactly 30% of any screen height
+  alignment: Alignment.center,
+  decoration: BoxDecoration(
+    // 1. Give the container a base color (the color the image will blend into)
+    color: const Color(0xFF1E1E1E), 
+    borderRadius: BorderRadius.circular(10),
+    boxShadow: const [
+      BoxShadow(
+        color: Colors.black12,
+        blurRadius: 10,
+        offset: Offset(0, 4),
+      )
+    ],
+  ),
+  // 2. Use ShaderMask to apply the blending gradient directly to the image child
+  child: ShaderMask(
+    shaderCallback: (rect) {
+      return const LinearGradient(
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+        // The image stays fully visible at the top, and fades to black at the bottom
+        colors: [Colors.black, Colors.transparent],
+        stops: [0.1, 1.0], // Controls where the fade starts and ends
+      ).createShader(rect);
+    },
+    blendMode: BlendMode.dstIn, // Combines the gradient mask with the image
+    child: Container(
+      width: double.infinity,
+      height: double.infinity,
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage("assets/images/futalog.jpg"),
+          fit: BoxFit.cover,
+        ),
+      ),
+      // 3. Place your text inside the container so it sits over the faded area
+      child: const Padding(
+        padding: EdgeInsets.all(16.0),
+        child: Align(
+          alignment: Alignment.center,
+          child: Text(
+            "Your Future. Our Mission",
+            style: TextStyle(
+              color: Colors.white, 
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ),
+      ),
+    ),
+  ),
+), SizedBox(height: 20,),      
                 // Section Header
                 const Padding(
                   padding: EdgeInsets.symmetric(vertical: 20),

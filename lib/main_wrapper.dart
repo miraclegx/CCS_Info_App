@@ -39,26 +39,26 @@ class _MainWrapperState extends State<MainWrapper> {
         },
         // Match the clean, simple style from your wireframes
         backgroundColor: Colors.white,
-        indicatorColor: const Color(0xFFE040FB).withOpacity(0.2), // Light purple highlight circle
+        indicatorColor: const Color.fromARGB(255, 49, 73, 143).withOpacity(0.2), // Light purple highlight circle
         destinations: const [
           NavigationDestination(
             icon: Icon(Icons.home_outlined),
-            selectedIcon: Icon(Icons.home, color: Color(0xFF4A148C)), // FUTA Purple when active
+            selectedIcon: Icon(Icons.home, color: const Color.fromARGB(255, 49, 73, 143)), // FUTA Purple when active
             label: 'Home',
           ),
           NavigationDestination(
             icon: Icon(Icons.track_changes),
-            selectedIcon: Icon(Icons.track_changes, color: Color(0xFF4A148C)),
+            selectedIcon: Icon(Icons.track_changes, color: const Color.fromARGB(255, 49, 73, 143)),
             label: 'What We Do',
           ),
           NavigationDestination(
             icon: Icon(Icons.info),
             label: "About Us",
-            selectedIcon: Icon(Icons.info,color: Color(0xFF4A148C),),
+            selectedIcon: Icon(Icons.info,color: const Color.fromARGB(255, 49, 73, 143),),
             ),
           NavigationDestination(
             icon: Icon(Icons.contact_support),
-            selectedIcon: Icon(Icons.contact_support, color: Color(0xFF4A148C)),
+            selectedIcon: Icon(Icons.contact_support, color: const Color.fromARGB(255, 49, 73, 143)),
             label: 'Contact Us',
           ),
         ],
