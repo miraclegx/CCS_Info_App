@@ -10,6 +10,7 @@ void main(){
   runApp(
      MaterialApp(
       title: "CCS, FUTA",
+      debugShowCheckedModeBanner: false,
       home: MainWrapper(),
       theme: ThemeData(
         primarySwatch: Colors.blue,
