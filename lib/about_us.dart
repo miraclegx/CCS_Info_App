@@ -10,7 +10,11 @@ class AboutUs extends StatelessWidget {
     final double screenHeight = MediaQuery.sizeOf(context).height;
 
     return Scaffold(
-      appBar: AppBar(title: Text("About Us")),
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        title: Text("About Us"),
+        backgroundColor: Colors.transparent,
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -19,7 +23,11 @@ class AboutUs extends StatelessWidget {
               children: <Widget>[
                 Text(
                   "About The Center For Career Services",
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: const Color(0xFF0F2C59),
+                  ),
                 ),
                 ClipRRect(
                   borderRadius: BorderRadius.circular(10),
@@ -54,7 +62,7 @@ class AboutUs extends StatelessWidget {
                 ),
                 SizedBox(height: 10),
                 ServiceCard(
-                  iconColor: const Color(0xFF0F2C59),
+                  iconColor: const Color.fromARGB(255, 169, 28, 68),
                   bgColor: Color(0xFF0F2C59).withValues(alpha: 0.05),
                   title: "Our Values",
                   subtitle:

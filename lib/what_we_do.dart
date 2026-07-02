@@ -9,7 +9,8 @@ class WhatWeDo extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text("Our Services"),
-        backgroundColor: const Color.fromARGB(255, 49, 73, 143),
+        backgroundColor: Colors.transparent,
+        //backgroundColor: const Color.fromARGB(255, 49, 73, 143),
       ),
       body: //SafeArea(
       SingleChildScrollView(
